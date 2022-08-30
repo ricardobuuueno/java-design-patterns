@@ -2,7 +2,7 @@ package my.project.builder;
 
 import java.time.LocalDate;
 
-public class Builder {
+public class BuilderDirector {
 
 	public static UserDTO directBuild(UserDTOBuilder builder, User user) {
 		return builder.withFirstName(user.getFirstName())
