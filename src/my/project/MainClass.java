@@ -2,6 +2,7 @@ package my.project;
 
 import my.project.builder.*;
 import my.project.factory_method.*;
+import my.project.prototype.*;
 import my.project.simple_factory.*;
 
 public class MainClass {
@@ -11,7 +12,7 @@ public class MainClass {
 		System.out.println(msg);
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws CloneNotSupportedException {
 
 		System.out.println("\nBuilder");
 		User user = BuilderDirector.createUser();
@@ -27,6 +28,16 @@ public class MainClass {
 		System.out.println("\nFactory method");
 		printMessage(new JSONMessageCreator());
 		printMessage(new TextMessageCreator());
+		
+		System.out.println("\nPrototype");
+		Swordsman s1 = new Swordsman();
+		s1.move(new Point3D(-10,0,0) , 20);
+		s1.attack();
+		System.out.println(s1);
+
+		Swordsman s2 = (Swordsman)s1.clone();
+		System.out.println(s2);
+		
 	}
 
 }
