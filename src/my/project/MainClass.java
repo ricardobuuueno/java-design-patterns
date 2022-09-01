@@ -6,6 +6,7 @@ import my.project.builder.*;
 import my.project.factory_method.*;
 import my.project.prototype.*;
 import my.project.simple_factory.*;
+import my.project.singleton.*;
 
 public class MainClass {
 
@@ -51,6 +52,9 @@ public class MainClass {
 		Instance i2 = gcp.createServer(Capacity.micro, 20480);
 		i2.start();
 		i2.stop();
+		
+		System.out.println("\nSingleton");
+		SingletonClient sc1 = new SingletonClient();
 		
 	}
 
