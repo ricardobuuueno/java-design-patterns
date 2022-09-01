@@ -4,6 +4,7 @@ import my.project.abstract_factory.*;
 import my.project.abstract_factory.Instance.Capacity;
 import my.project.builder.*;
 import my.project.factory_method.*;
+import my.project.object_pool.*;
 import my.project.prototype.*;
 import my.project.simple_factory.*;
 import my.project.singleton.*;
@@ -55,6 +56,19 @@ public class MainClass {
 		
 		System.out.println("\nSingleton");
 		SingletonClient sc1 = new SingletonClient();
+		System.out.println(sc1);
+		
+		System.out.println("\nObject pool");
+		Bitmap b1 = ObjectPoolClient.bitmapPool.get();
+		b1.setLocation(new Point2D(10,10));
+		Bitmap b2 = ObjectPoolClient.bitmapPool.get();
+		b2.setLocation(new Point2D(-10,0));
+		
+		b1.draw();
+		b2.draw();
+		
+		ObjectPoolClient.bitmapPool.release(b1);
+		ObjectPoolClient.bitmapPool.release(b2);
 		
 	}
 

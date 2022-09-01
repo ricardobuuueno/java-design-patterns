@@ -10,9 +10,6 @@ public class SingletonClient {
 		LazyRegistryWithDCL lz1 = LazyRegistryWithDCL.getInstance();
 		LazyRegistryWithDCL lz2 = LazyRegistryWithDCL.getInstance();
 		System.out.println(lz1 == lz2);
-		
-		LazyRegistryIODH singleton;
-		singleton = LazyRegistryIODH.getInstance();
 	}
 	
 }
