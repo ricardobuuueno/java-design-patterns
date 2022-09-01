@@ -1,5 +1,7 @@
 package my.project;
 
+import my.project.abstract_factory.*;
+import my.project.abstract_factory.Instance.Capacity;
 import my.project.builder.*;
 import my.project.factory_method.*;
 import my.project.prototype.*;
@@ -7,7 +9,7 @@ import my.project.simple_factory.*;
 
 public class MainClass {
 
-	public static void printMessage(MessageCreator creator) {
+	private static void printMessage(MessageCreator creator) {
 		Message msg = creator.getMessage();
 		System.out.println(msg);
 	}
@@ -37,6 +39,18 @@ public class MainClass {
 
 		Swordsman s2 = (Swordsman)s1.clone();
 		System.out.println(s2);
+		
+		System.out.println("\nAbstract factory");
+		AbstractFactoryClient aws = new AbstractFactoryClient(new AwsResourceFactory());
+		Instance i1 = aws.createServer(Capacity.micro, 20480);
+		i1.start();
+		i1.stop();
+		
+		System.out.println("\n******************************");
+		AbstractFactoryClient gcp = new AbstractFactoryClient(new GoogleResourceFactory()); 
+		Instance i2 = gcp.createServer(Capacity.micro, 20480);
+		i2.start();
+		i2.stop();
 		
 	}
 
