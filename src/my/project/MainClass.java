@@ -9,6 +9,7 @@ import my.project.prototype.*;
 import my.project.simple_factory.*;
 import my.project.singleton.*;
 import my.project.adapter.*;
+import my.project.bridge.*;
 
 public class MainClass {
 
@@ -85,6 +86,17 @@ public class MainClass {
 		card = designer.designCard(objectAdapter);
 		System.out.println(card);
 		
+		System.out.println("\nBridge");
+		FifoCollection<Integer> collection = new Queue<>(new SinglyLinkedList<>());
+		collection.offer(10);
+		collection.offer(30);
+		collection.offer(50);
+		System.out.println(collection.poll());
+		System.out.println(collection.poll());
+		System.out.println(collection.poll());
+		System.out.println(collection.poll());
+		
+
 	}
 
 }
