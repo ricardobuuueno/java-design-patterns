@@ -8,6 +8,7 @@ import my.project.object_pool.*;
 import my.project.prototype.*;
 import my.project.simple_factory.*;
 import my.project.singleton.*;
+import my.project.adapter.*;
 
 public class MainClass {
 
@@ -69,6 +70,20 @@ public class MainClass {
 		
 		ObjectPoolClient.bitmapPool.release(b1);
 		ObjectPoolClient.bitmapPool.release(b2);
+
+		System.out.println("\nAdapter");
+		EmployeeClassAdapter adapter = new EmployeeClassAdapter();
+		AdapterClient.populateEmployeeData(adapter);
+		
+		BusinessCardDesigner designer = new BusinessCardDesigner();
+		String card = designer.designCard(adapter);
+		System.out.println(card);
+		
+		Employee employee = new Employee();
+		AdapterClient.populateEmployeeData(employee);
+		EmployeeObjectAdapter objectAdapter = new EmployeeObjectAdapter(employee);
+		card = designer.designCard(objectAdapter);
+		System.out.println(card);
 		
 	}
 
