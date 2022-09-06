@@ -96,6 +96,15 @@ public class MainClass {
 		System.out.println(collection.poll());
 		System.out.println(collection.poll());
 		
+		System.out.println("\nDecorator");
+		my.project.decorator.Message m = new my.project.decorator.TextMessage("The <FORCE> is strong with this one");
+		System.out.println(m.getContent());
+		
+		my.project.decorator.Message decorator = new my.project.decorator.HtmlEncodedMessage(m);
+		System.out.println(decorator.getContent());
+
+		my.project.decorator.Message decorator2 = new my.project.decorator.Base64EncodedMessage(decorator);
+		System.out.println(decorator2.getContent());
 
 	}
 
