@@ -10,6 +10,7 @@ import my.project.simple_factory.*;
 import my.project.singleton.*;
 import my.project.adapter.*;
 import my.project.bridge.*;
+import my.project.composite.*;
 
 public class MainClass {
 
@@ -105,6 +106,14 @@ public class MainClass {
 
 		my.project.decorator.Message decorator2 = new my.project.decorator.Base64EncodedMessage(decorator);
 		System.out.println(decorator2.getContent());
+		
+		System.out.println("\nComposite");
+		File root1 = CompositeClient.createTreeOne();
+		root1.ls();
+		
+		File root2 = CompositeClient.createTreeTwo();
+		root2.ls();
+		
 
 	}
 
