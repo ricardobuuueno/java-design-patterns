@@ -14,6 +14,7 @@ import my.project.composite.*;
 import my.project.facade.*;
 import my.project.flyweight.*;
 import my.project.flyweight.ErrorMessageFactory.ErrorType;
+import my.project.proxy.*;
 
 public class MainClass {
 
@@ -132,6 +133,13 @@ public class MainClass {
 		
 		UserBannedErrorMessage msg2 = ErrorMessageFactory.getInstance().getUserBannedMessage("1293");
 		System.out.println(msg2.getText(null));
+		
+		
+		System.out.println("\nProxy");
+		my.project.proxy.Image img = ImageFactory.getImage("A1.bmp");
+		img.setLocation(new Point2D(10,10));
+		System.out.println("Image location: " + img.getLocation());
+		img.render();
 		
 
 	}
