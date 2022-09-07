@@ -12,6 +12,8 @@ import my.project.adapter.*;
 import my.project.bridge.*;
 import my.project.composite.*;
 import my.project.facade.*;
+import my.project.flyweight.*;
+import my.project.flyweight.ErrorMessageFactory.ErrorType;
 
 public class MainClass {
 
@@ -123,6 +125,13 @@ public class MainClass {
 		EmailFacade facade = new EmailFacade();
 		result = facade.sendOrderEmail(order);
 		System.out.println("Order Email "+ (result?"sent!":"NOT sent..."));
+		
+		System.out.println("\nFlyweight");
+		SystemErrorMessage msg1 = ErrorMessageFactory.getInstance().getError(ErrorType.GenericSystemError);
+		System.out.println(msg1.getText("4056"));
+		
+		UserBannedErrorMessage msg2 = ErrorMessageFactory.getInstance().getUserBannedMessage("1293");
+		System.out.println(msg2.getText(null));
 		
 
 	}
