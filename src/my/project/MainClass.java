@@ -11,6 +11,7 @@ import my.project.singleton.*;
 import my.project.adapter.*;
 import my.project.bridge.*;
 import my.project.composite.*;
+import my.project.facade.*;
 
 public class MainClass {
 
@@ -113,6 +114,15 @@ public class MainClass {
 		
 		File root2 = CompositeClient.createTreeTwo();
 		root2.ls();
+		
+		System.out.println("\nFaçade");
+		Order order = new Order("191", 99.99);
+		boolean result = FacadeClient.sendOrderEmailWithoutFacade(order);
+		System.out.println("Order Email "+ (result?"sent!":"NOT sent..."));
+		
+		EmailFacade facade = new EmailFacade();
+		result = facade.sendOrderEmail(order);
+		System.out.println("Order Email "+ (result?"sent!":"NOT sent..."));
 		
 
 	}
