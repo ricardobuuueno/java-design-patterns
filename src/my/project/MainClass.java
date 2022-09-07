@@ -141,6 +141,11 @@ public class MainClass {
 		System.out.println("Image location: " + img.getLocation());
 		img.render();
 		
+		my.project.proxy.Image dyn = ImageFactory.getDynamicImage("DUU.JPG");
+		dyn.setLocation(new Point2D(-10,0));
+		System.out.println(dyn.getLocation());
+		dyn.render();
+
 
 	}
 
