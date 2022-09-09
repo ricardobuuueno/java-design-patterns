@@ -19,6 +19,7 @@ import my.project.flyweight.ErrorMessageFactory.ErrorType;
 import my.project.proxy.*;
 import my.project.chain.*;
 import my.project.chain.LeaveApplication.Type;
+import my.project.command.*;
 
 public class MainClass {
 
@@ -159,7 +160,11 @@ public class MainClass {
 		approver.processLeaveApplication(application);
 		System.out.println(application);
 		
-
+		
+		System.out.println("\n\nCommand");
+		CommandClient.run();
+		
+		
 	}
 
 }
