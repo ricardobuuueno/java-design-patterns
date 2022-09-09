@@ -1,5 +1,7 @@
 package my.project;
 
+import java.time.LocalDate;
+
 import my.project.abstract_factory.*;
 import my.project.abstract_factory.Instance.Capacity;
 import my.project.builder.*;
@@ -15,6 +17,8 @@ import my.project.facade.*;
 import my.project.flyweight.*;
 import my.project.flyweight.ErrorMessageFactory.ErrorType;
 import my.project.proxy.*;
+import my.project.chain.*;
+import my.project.chain.LeaveApplication.Type;
 
 public class MainClass {
 
@@ -85,7 +89,7 @@ public class MainClass {
 		String card = designer.designCard(adapter);
 		System.out.println(card);
 		
-		Employee employee = new Employee();
+		my.project.adapter.Employee employee = new my.project.adapter.Employee();
 		AdapterClient.populateEmployeeData(employee);
 		EmployeeObjectAdapter objectAdapter = new EmployeeObjectAdapter(employee);
 		card = designer.designCard(objectAdapter);
@@ -146,6 +150,15 @@ public class MainClass {
 		System.out.println(dyn.getLocation());
 		dyn.render();
 
+		System.out.println("\n\nChain of Responsabitily");
+		LeaveApplication application = LeaveApplication.getBuilder()
+				.withType(Type.Sick)
+				.from(LocalDate.now()).to(LocalDate.of(2022, 9, 28))
+				.build();
+		LeaveApprover approver = ChainClient.createChain();
+		approver.processLeaveApplication(application);
+		System.out.println(application);
+		
 
 	}
 
