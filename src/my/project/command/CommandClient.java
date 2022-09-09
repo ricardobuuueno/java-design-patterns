@@ -12,7 +12,7 @@ public class CommandClient {
 			Command c2 = new AddMemberCommand("b@b", "spam", service);
 			MailTaskRunner.getInstance().addCommand(c2);
 			
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 			
 			MailTaskRunner.getInstance().shutdown();
 		}

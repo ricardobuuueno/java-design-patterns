@@ -20,6 +20,7 @@ import my.project.proxy.*;
 import my.project.chain.*;
 import my.project.chain.LeaveApplication.Type;
 import my.project.command.*;
+import my.project.interpreter.*;
 
 public class MainClass {
 
@@ -31,7 +32,7 @@ public class MainClass {
 	public static void main(String[] args) throws CloneNotSupportedException {
 
 		System.out.println("\nBuilder");
-		User user = BuilderDirector.createUser();
+		my.project.builder.User user = BuilderDirector.createUser();
 		UserDTOBuilder builder = new UserWebDTOBuilder();
 		
 		UserDTO dto = BuilderDirector.directBuild(builder, user);
@@ -164,6 +165,16 @@ public class MainClass {
 		System.out.println("\n\nCommand");
 		CommandClient.run();
 		
+		
+		System.out.println("\n\nInterpreter");
+		Report report1 = new Report("Cashflow report", "FINANCE_ADMIN OR ADMIN");
+		ExpressionBuilder ex_builder = new ExpressionBuilder();
+		
+		PermissionExpression exp = ex_builder.build(report1);
+		System.out.println(exp);
+		
+		my.project.interpreter.User us1 = new my.project.interpreter.User("Dave", "USER", "ADMIN");
+		System.out.println("User access report: " + exp.interpret(us1));
 		
 	}
 
