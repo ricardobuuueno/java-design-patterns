@@ -176,6 +176,10 @@ public class MainClass {
 		my.project.interpreter.User us1 = new my.project.interpreter.User("Dave", "USER", "ADMIN");
 		System.out.println("User access report: " + exp.interpret(us1));
 		
+		
+		System.out.println("\n\nMediator");
+		
+		
 	}
 
 }
