@@ -21,6 +21,7 @@ import my.project.chain.*;
 import my.project.chain.LeaveApplication.Type;
 import my.project.command.*;
 import my.project.interpreter.*;
+import my.project.iterator.*;
 
 public class MainClass {
 
@@ -177,7 +178,11 @@ public class MainClass {
 		System.out.println("User access report: " + exp.interpret(us1));
 		
 		
-		System.out.println("\n\nMediator");
+		System.out.println("\n\nIterator");
+		Iterator<ThemeColor> iter = ThemeColor.getIterator();
+		while(iter.hasNext()) {
+			System.out.println(iter.next());
+		}
 		
 		
 	}
