@@ -22,6 +22,7 @@ import my.project.chain.LeaveApplication.Type;
 import my.project.command.*;
 import my.project.interpreter.*;
 import my.project.iterator.*;
+import my.project.memento.MementoClient;
 
 public class MainClass {
 
@@ -184,6 +185,8 @@ public class MainClass {
 			System.out.println(iter.next());
 		}
 		
+		System.out.println("\n\nMemento");
+		MementoClient.execute();
 		
 	}
 
