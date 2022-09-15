@@ -23,6 +23,7 @@ import my.project.command.*;
 import my.project.interpreter.*;
 import my.project.iterator.*;
 import my.project.memento.MementoClient;
+import my.project.observer.*;
 
 public class MainClass {
 
@@ -127,7 +128,7 @@ public class MainClass {
 		root2.ls();
 		
 		System.out.println("\nFaçade");
-		Order order = new Order("191", 99.99);
+		my.project.facade.Order order = new my.project.facade.Order("191", 99.99);
 		boolean result = FacadeClient.sendOrderEmailWithoutFacade(order);
 		System.out.println("Order Email "+ (result?"sent!":"NOT sent..."));
 		
@@ -187,6 +188,15 @@ public class MainClass {
 		
 		System.out.println("\n\nMemento");
 		MementoClient.execute();
+		
+		System.out.println("\n\nObserver");
+		my.project.observer.Order oorder = new my.project.observer.Order("100");
+		my.project.observer.PriceObserver price = new my.project.observer.PriceObserver();
+		oorder.attach(price);
+		
+		oorder.addItem(50);
+		oorder.addItem(179);
+		System.out.println(oorder);
 		
 	}
 
