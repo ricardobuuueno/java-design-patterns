@@ -23,7 +23,6 @@ import my.project.command.*;
 import my.project.interpreter.*;
 import my.project.iterator.*;
 import my.project.memento.MementoClient;
-import my.project.observer.*;
 
 public class MainClass {
 
@@ -189,6 +188,7 @@ public class MainClass {
 		System.out.println("\n\nMemento");
 		MementoClient.execute();
 		
+		
 		System.out.println("\n\nObserver");
 		my.project.observer.Order oorder = new my.project.observer.Order("100");
 		my.project.observer.PriceObserver price = new my.project.observer.PriceObserver();
@@ -197,6 +197,15 @@ public class MainClass {
 		oorder.addItem(50);
 		oorder.addItem(179);
 		System.out.println(oorder);
+		
+		
+		System.out.println("\n\nState");
+		my.project.state.Order os = new my.project.state.Order(); 
+		os.paymentSuccessful();
+		os.delivered();
+		os.cancel();
+		
+		
 		
 	}
 
