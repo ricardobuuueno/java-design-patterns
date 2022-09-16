@@ -206,6 +206,8 @@ public class MainClass {
 		os.cancel();
 		
 		
+		System.out.println("\n\nStrategy");
+		my.project.strategy.StrategyClient.execute();
 		
 	}
 
