@@ -1,5 +1,6 @@
 package my.project;
 
+import java.io.FileNotFoundException;
 import java.time.LocalDate;
 
 import my.project.abstract_factory.*;
@@ -208,6 +209,23 @@ public class MainClass {
 		
 		System.out.println("\n\nStrategy");
 		my.project.strategy.StrategyClient.execute();
+		
+		
+		System.out.println("\n\nTemplate Method");
+		my.project.template_method.Order ot = new my.project.template_method.Order("3432");
+		ot.addItem("Soda", 2.5);
+		ot.addItem("Sandwich", 11.95);
+		ot.addItem("Pizza", 15.95);
+		
+		my.project.template_method.OrderPrinter printer = new my.project.template_method.TextPrinter();
+		try {
+			printer.printOrder(ot, "test.txt");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
 		
 	}
 
