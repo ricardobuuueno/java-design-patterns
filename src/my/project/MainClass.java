@@ -225,7 +225,13 @@ public class MainClass {
 		}
 		
 		
+		System.out.println("\n\nVisitor");
+		my.project.visitor.VisitorClient.execute();
 		
+		
+		System.out.println("\n\nNull Object");
+		my.project.null_object.ComplexService cs = new my.project.null_object.ComplexService("Simple report", new my.project.null_object.NullStorageService());
+		cs.generateReport();
 		
 	}
 
